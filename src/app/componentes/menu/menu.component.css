@@ -1,0 +1,57 @@
+div#mimenu {
+    width: 200px;
+    background: brown;
+    height: 100vh;
+    float: left;
+}
+
+div#datosuaurio img {
+    width: 150px;
+    border-radius: 50%;
+    height: 150px;
+    margin-left: calc(50% - 75px);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.lblnombre {
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.lblrol {
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.opciones {
+    padding-left: 10px;
+    color: white;
+}
+
+.itemmenu {
+    margin-bottom: 11px;
+    font-style: italic;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2 ease-in-out;
+}
+
+.itemmenu:hover {
+    margin-left: 10px;
+}
+
+div#superior {
+    background: brown;
+    height: 37px;
+}

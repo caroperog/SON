@@ -1,0 +1,179 @@
+<app-menu></app-menu>
+<div class="ventana">
+    <div class="titulo">Empleados</div>
+
+    <!-- Botón para abrir el modal -->
+
+
+    <div id="datos">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Codigo contrato</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Estado</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of datos" (click)="EditarId(item._id)" >
+                    <td>{{ item.cedula }}</td>
+                    <td>{{ item.codigo }}</td>
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.apellido }}</td>
+                    <td>
+                        <div *ngIf="item.estado == 1">Activo</div>
+                        <div *ngIf="item.estado == 0">Inactivo</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<button type="button" class="btn btn-primary btnadd" data-bs-toggle="modal" data-bs-target="#modalnuevo" (click)="AbrirModal()">
+    +
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalnuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo Empleado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario de Empleado -->
+                <div class="mb-3">
+                    <label for="codigo" class="form-label">Código Empleado</label>
+                    <input type="text" class="form-control" id="codigo" [(ngModel)]="cedula" [disabled]="Idseleccionado !='' " >
+                </div>
+
+                <div class="mb-3">
+                    <label for="codigo" class="form-label">Codigo contrato</label>
+                    <select class="form-select" id="codigo" [(ngModel)]="codigo">
+                        <option value="{{item.codigo}}" *ngFor="let item of datosContrato" > {{item.nombre}} </option>
+                        
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="apellido" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" id="apellido" [(ngModel)]="apellido">
+                </div>
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <select class="form-select" id="estado" [(ngModel)]="estado">
+                        <option value="true">Activo</option>
+                        <option value="false">Inactivo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="Guardar()" *ngIf="Idseleccionado == '' " >Guardar</button>
+                <button type="button" class="btn btn-primary" (click)="Actualizar()" *ngIf="Idseleccionado != '' " >Actualizar</button>
+                <button type="button" class="btn btn-danger" (click)="Eliminar()" *ngIf="Idseleccionado != '' ">Eliminar</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 
+
+<div class="ventana">
+
+    <div class="titulo">Empleados</div>
+
+    <div id="datos">
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of datos">
+
+                    <td>{{item.cedula}}</td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.apellido}}</td>
+
+                    <td>
+
+                        <div *ngIf="item.estado == 1">Activo</div>
+                        <div *ngIf="item.estado == 0">Inactivo</div>
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+</div>
+
+
+
+<div class="btnadd" (click)="AbrirModal()">+</div> -->
+<!-- Modal -->
+<!-- <div class="modal fade" id="modalNuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Empleado</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Codigo empleado</label>
+                    <input type="email" class="form-control" id="codigo" aria-describedby="emailHelp"
+                        [(ngModel)]="cedula">
+                </div>
+
+                <div class="mb-3"></div>
+                <label for="Nombre" class="form-label">Nombres</label>
+                <input type="email" class="form-control" id="nombre" aria-describedby="emailHelp" [(ngModel)]="nombre">
+
+                <div class="mb-3"></div>
+                <label for="apellido" class="form-label">Apellidos</label>
+                <input type="email" class="form-control" id="apellido" aria-describedby="emailHelp"
+                    [(ngModel)]="apellido">
+
+                <div class="mb-3"></div>
+                <label for="estado" class="form-label">Estado</label>
+                <select class="form-select form-select-sm" aria-label="Small select example" id="estado"
+                    [(ngModel)]="estado">
+                    <option value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+
+                </select>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-primary">Actualizar</button>
+                <button type="button" class="btn btn-danger">Eliminar</button>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div> -->

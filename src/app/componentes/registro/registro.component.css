@@ -1,0 +1,9 @@
+#registro{
+    width: 375px;
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 27px;
+    margin-left: calc(50% - 180px);
+    margin-top: 22px;
+    background: rgb(236, 183, 113);
+}

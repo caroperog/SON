@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div id="registro">
+
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="email" class="form-control" aria-describedby="emailHelp" [(ngModel)]="nombre">
+
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">email</label>
+        <input type="email" class="form-control" aria-describedby="emailHelp" [(ngModel)]="email">
+
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" class="form-control"  [(ngModel)]="password">
+    </div>
+
+<!--     <div class="mb-3">
+        <label for="password" class="form-label">Repite contraseña</label>
+        <input type="password" class="form-control"  [(ngModel)]="vpassword">
+    </div> -->
+
+    <button type="submit" class="btn btn-primary" (click)="registrar()" >Registrarse</button>
+</div>
+
+<app-footer></app-footer>
